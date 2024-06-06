@@ -1,5 +1,6 @@
 NeuralNetwork1 is a veryyyy early version. It's my first working NN and it's using almost exclusively raw python except numpy for euler's number and generating data. This is not a reflection of my coding ability, moreso of my NN understanding.
 The code is horribly written, very inefficient, uncommented, and all around unpolished. I committed it as soon as it started functioning for the sake of getting my early version on here.
+I used very inefficient coding practives in a lot of cases (the weights and biases initialization for example) for the sake of keeping it simple to retain my train of thought in regard to the actual NN structure.
 It takes a single X coordinate and a Y coordinate from the funciton 1/2 * x^3, and learns to fit the 'curve' (only one point). Within 100 runs the loss is virtually zero.
 It has one input, one hidden layer of 8 neurons, and one output. It uses a simple sigmoid activation function for the hidden layer (the output doesn't need an activation function as it isn't outputting something like a probability, and therefore
 it doesn't need a bias either, as that scalar addition would be redundant). The loss is calculated using a simple mean square error with an added 1/2 multiplier to make the derivative a bit simpler. Below I'm gonna write some of the 
