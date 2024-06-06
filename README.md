@@ -9,18 +9,26 @@ math to find the cost gradient as it's not very obvious in the code.
 Forward Prop:
 
 Hidden_layer_input(i) = Weight(1)(i) * input + Bias(i)
+
 Hidden_layer_output(i) = sigmoid(Hidden_layer_input(i))
+
 Output = sum(Weight(2)(i) * Hidden_layer_output(i))
+
 Loss = 1/2(Output - expected_output)^2
 
 Here, Weight(1)(i) is the ith weight in the first layer and Weight(2)(i) is the ith weight in the second layer. Everything else should be self explanatory where i is the ith neuron.
 
 Back Prop:
 
+
 dLoss/dWeight(2)(i) = dLoss/dOuput * dOutput/dWeight(2)(i) = (Output - expected_output) * Hidden_layer_output(i)
+
 dLoss/dWeight(1)(i) = dLoss/dOutput * dOutput/dHidden_layer_output(i) * dHidden_layer_output(i)/dHidden_layer_input(i) * dHidden_layer_input(i)/dWeight(1)(i)
+
 = (Output - expected_output) * Weight(2)(i) * (Hidden_layer_output(i) * (1 - Hidden_layer_output(i)) * input
+
 dLoss/dBias(i) = dLoss/dOutput * dOutput/dHidden_layer_output(i) * dHidden_layer_output(i)/dHidden_layer_input(i) * dHidden_layer_input(i)/dBias(i)
+
 = (Output - expected_output) * Weight(2)(i) * (Hidden_layer_output(i) * (1 - Hidden_layer_output(i))
 
 Here, through math, the derivative of sigmoid(Hidden_layer_input(i)) can be shown to be equal to (Hidden_layer_output(i) * (1 - Hidden_layer_output(i))
